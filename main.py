@@ -11,7 +11,11 @@ def home():
 # player info page
 @app.route("/player/<player_name>")
 def player(player_name):
-    return render_template("player.html", player_name = player_name)
+    Information = {}
+    # need to get details of the player for data base and store in Infomation and pass it 
+    return render_template("player.html", player_name = player_name, Information=Information)
+
+
 
 # about page of the ipldb
 @app.route("/about")
