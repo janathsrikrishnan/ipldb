@@ -4,6 +4,11 @@
         <title>{{player_name}}</title>
     </head>
     <body>
-        <p>hello to {{player_name}}</p>
+        <img src="" alt={{player_name}} />
+        <!--need to create for loop to render the data taken from data base-->
+<!-- --> 
+        {%for content in Information%}
+            <p>{{content}}:{{Information[content]}}</p>
+        {%endfor%}
     </body>
 </html>
