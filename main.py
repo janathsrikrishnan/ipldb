@@ -34,6 +34,9 @@ def player(player_name):
     # need to get details of the player for data base and store in Infomation and pass it 
     return render_template("player.html", player_name = player_name, Information=Information)
 
+@app.route("/trail")
+def trail():
+    return render_template("trail.html")
 
 
 # about page of the ipldb
