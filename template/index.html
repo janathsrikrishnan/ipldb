@@ -1,150 +1,71 @@
-<!DOCclass html>
-<html>
-    <head>
-        <title>ipldb</title>
-        <meta charset="utf-8">
-        <link rel="icon" href="{{ url_for('static', filename='images/logo.ico') }}">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block body %}
+{{ super() }}
+    <section id="highlights">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div class="ap-main-header col-100 floatLft flexDisplay justifySpace alignCenter flxNav" id="myHeader">
-
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#"></a>
-          <button class="navbar-toggler" class="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <div class="ap-ipl-logo"><a href="index.html"><img class="lazy" src="https://www.news247plus.com/contents_img/N247P-news-image-6291405812-23776-1597979555.jpg" alt="" height="50px" width="50px"></a></div>
-            </li>
-
-                <li class="nav-item active">
-                <a class="nav-link" href="#">Season <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Matches <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Stats <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('pointTable', year=2022) }}">Points Table <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Players <span class="sr-only">(current)</span></a>
-              </li>
-                <li class="nav-item active">
-                <a class="nav-link" href="#">More <span class="sr-only">(current)</span></a>
-              </li>
-            </ul>
-            <div class="wrap">
-             <div class="search">
-              <input class="text" class="searchTerm" placeholder="Search">
-              <button class="submit" class="searchButton">
-                <i class="fa fa-search"></i>
-               </button>
-             </div>
-            </div>
-          </div>
-        </nav>
-<!-- 
-        <section id="highlights">
-
-          <div id="testimonial-carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
+        <div id="testimonial-carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <h2>Hardik leads Gujarat Titans win their first Trophy in their very 1st Season.</h2>
-                <!-- <img class="testimonial-img" src="images/lady-img.jpg" alt="lady-profile"> -->
-              </div>
-              <div class="carousel-item">
-                <h2 class="testimonial-text">CSK and MI had a tough season this year at Tata IPL 2022.</h2>
-                <!-- <img class="testimonial-img" src="images/lady-img.jpg" alt="lady-profile"> -->
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon"></span>
-            </a>
-          </div>
-
-        </section> -->
-        <section id="highlights">
-
-          <div id="testimonial-carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="2008-champ" src="https://img.cricketnmore.com/uploads/gallery/Rajasthan-Royals-IPL-2008-winner.jpg" alt="2008-champ" height="400px" width="1000px">
-                <h2>2008 Champions - Rajasthan Royals</h2>
-              </div>
-              <div class="carousel-item">
+              	<div class="carousel-item active">
+                	<img class="2008-champ" src="https://img.cricketnmore.com/uploads/gallery/Rajasthan-Royals-IPL-2008-winner.jpg" alt="2008-champ" height="400px" width="1000px">
+                	<h2>2008 Champions - Rajasthan Royals</h2>
+              	</div>
+            <div class="carousel-item">
                 <img class="2009-champ" src="https://staticg.sportskeeda.com/editor/2018/12/5a58e-15462326031101-800.jpg" alt="2009-champ" height="400px" width="1000px">
                 <h2>2009 Champions - Deccan Charges</h2>
-              </div>
-              <div class="carousel-item">
+            </div>
+            <div class="carousel-item">
                 <img class="2010-champ" src="https://cdn.firstsportz.com/wp-content/uploads/2020/08/26183025/IPL-2010-CSK-VS-MI-FINAL.jpg" alt="2010-champ" height="400px" width="1000px">
                 <h2>2010 Champions - Chennai Super Kings</h2>
-              </div>
-              <div class="carousel-item">
+            </div>
+            <div class="carousel-item">
                 <img class="2011-champ" src="https://www.cricwindow.com/images/ipl/photo-gallary/ipl-2011-winner.jpg" alt="2011-champ" height="400px" width="1000px">
                 <h2>2011 Champions - Chennai Super Kings</h2>
-              </div>
-              <div class="carousel-item">
+            </div>
+            <div class="carousel-item">
                 <img class="2012-champ" src="https://st1.latestly.com/wp-content/uploads/2021/05/FotoJet-36.jpg" alt="2012-champ" height="400px" width="1000px">
                 <h2>2012 Champions - Kolkata Knight Riders</h2>
-              </div>
-              <div class="carousel-item">
+            </div>
+            <div class="carousel-item">
                 <img class="2013-champ" src="https://www.crictracker.com/wp-content/uploads/2018/03/IPL-2013-champions.jpg" alt="2013-champ" height="400px" width="1000px">
                 <h2>2013 Champions - Mumbai Indians</h2>
-              </div>
-              <div class="carousel-item">
+            </div>
+            <div class="carousel-item">
                 <img class="2014-champ" src="https://drop.ndtv.com/albums/SPORTS/kkrwinningmoments/1.jpg" alt="2014-champ" height="400px" width="1000px">
                 <h2>2014 Champions - Kolkata Knight Riders</h2>
-              </div>
-              <div class="carousel-item">
+            </div>
+            <div class="carousel-item">
                 <img class="2015-champ" src="https://english.cdn.zeenews.com/sites/default/files/styles/zm_700x400/public/2015/05/25/361228-mi-champs-2015.jpg" alt="2015-champ" height="400px" width="1000px">
                 <h2>2015 Champions - Mumbai Indians</h2>
-              </div>
-              <div class="carousel-item">
+            </div>
+            <div class="carousel-item">
                 <img class="2016-champ" src="https://i.pinimg.com/originals/b8/c4/8b/b8c48b9db52a7b9ac870110ff16947ff.jpg" alt="2016-champ" height="400px" width="1000px">
                 <h2>2016 Champions - Sunrises Hyderabad</h2>
-              </div>
-              <div class="carousel-item">
+            </div>
+            <div class="carousel-item">
                 <img class="2017-champ" src="https://staticg.sportskeeda.com/editor/2018/02/631c0-1518443620-800.jpg" alt="2017-champ" height="400px" width="1000px">
                 <h2>2017 Champions - Mumbai Indians</h2>
-              </div>
-              <div class="carousel-item">
+            </div>
+            <div class="carousel-item">
                 <img class="2018-champ" src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201805/RON_3512.png?aWZLb5uDkcI1XdI9s_nm72Ktrh8Fmj8z&size=1200:675" alt="2018-champ" height="400px" width="1000px">
                 <h2>2018 Champions - Chennai Super Kings</h2>
-              </div>
-              <div class="carousel-item">
+            </div>
+            <div class="carousel-item">
                 <img class="2019-champ" src="https://www.mumbaiindians.com/static-assets/waf-images/8c/e3/61/0/b9JRw6T5Rt.jpg" alt="2019-champ" height="400px" width="1000px">
                 <h2>2019 Champions - Mumbai Indians</h2>
-              </div>
-              <div class="carousel-item">
+            </div>
+            <div class="carousel-item">
                 <img class="2020-champ" src="https://static.toiimg.com/photo/79164230.cms" alt="2020-champ" height="400px" width="1000px">
                 <h2>2020 Champions - Mumbai Indians</h2>
-              </div>
-              <div class="carousel-item">
+            </div>
+            <div class="carousel-item">
                 <img class="2021-champ" src="https://images.news18.com/ibnlive/uploads/2021/10/image-54.jpg" alt="2021-champ" height="400px" width="1000px">
                 <h2>2021 Champions - Chennai Super Kings</h2>
-              </div>
-              <div class="carousel-item">
+            </div>
+            <div class="carousel-item">
                 <img class="2022-champ" src="https://hindi.cdn.zeenews.com/hindi/sites/default/files/styles/zm_700x400/public/2022/05/30/1161618-gt-with-trophy.jpg?itok=ng_EjOLG" alt="2022-champ" height="400px" width="1000px">
                 <h2>2022 Champions - Gujarat Titans</h2>
-              </div>
+            </div>
             </div>
             <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon"></span>
@@ -152,9 +73,9 @@
             <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
               <span class="carousel-control-next-icon"></span>
             </a>
-          </div>
+        </div>
 
-        </section>
+    </section>
         <section id="seasons">
           <h1 class="season-header">Seasons </h1>
           <div class="season-buttons">
@@ -166,5 +87,5 @@
 
         </section>
 
-        </div>
-    </body>
+    </div>
+{% endblock %}
