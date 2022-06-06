@@ -1,29 +1,83 @@
-{% extends "base.html" %}
-{% block title %}PointTable: {{year}}{% endblock %}
-{% block body %}
-    
-    <!--code for creating table came here-->
-    <table>
-        <tr>
-            <th>Team name</th>
-            <th>Matches</th>
-            <th>won    </th>
-            <th>lost   </th>
-            <th>tied   </th>
-            <th>N/R    </th>
-            <th>NRR    </th>
-            <th>For    </th>
-            <th>Against</th>
-            <th>Points </th>
-        </tr>
-        {% for rows in pointtable %}
-            <tr>
-                <!-- to use len in fask we need to pass has pipe |-->
-                {% for i in range(1, rows|length)%}
-                    <td>{{ rows[i] }}</td>
-                {% endfor %}
-            </tr>
-        {% endfor %}
-    </table>
-    
-{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PointTable: {{year}}</title>
+        <meta charset="utf-8">
+        <link rel="icon" type="image/png" href="template/logo.png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    </head>
+
+	<body>
+  		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#"></a>
+    		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      			<span class="navbar-toggler-icon"></span>
+    		</button>
+
+    	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+      		<ul class="navbar-nav mr-auto">
+        	<li class="nav-item active">
+          	<div class="ap-ipl-logo"><a href="{{ url_for('home') }}"><img class="lazy" src="https://www.news247plus.com/contents_img/N247P-news-image-6291405812-23776-1597979555.jpg" alt="" height="50px" width="50px"></a></div>
+      		</li>
+
+          	<li class="nav-item active">
+          	<a class="nav-link" href="#">Season <span class="sr-only">(current)</span></a>
+        	</li>
+        	<li class="nav-item active">
+          		<a class="nav-link" href="#">Matches <span class="sr-only">(current)</span></a>
+        	</li>
+        	<li class="nav-item active">
+          		<a class="nav-link" href="#">Stats <span class="sr-only">(current)</span></a>
+        	</li>
+        	<li class="nav-item active">
+          		<a class="nav-link" href="points_table.html">Points Table <span class="sr-only">(current)</span></a>
+        	</li>
+        	<li class="nav-item active">
+          		<a class="nav-link" href="#">Players <span class="sr-only">(current)</span></a>
+        	</li>
+          	<li class="nav-item active">
+          		<a class="nav-link" href="#">More <span class="sr-only">(current)</span></a>
+        	</li>
+      		</ul>
+      		<form class="form-inline my-2 my-lg-0">
+        		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        		<button class="btn-search" type="submit">Search</button>
+      		</form>
+    	</div>
+  		</nav>
+  		<div class="table-div">
+  			<table class="table table-bordered table-hover">
+  				<thead class="thead-points_table">
+      				<tr>
+						<th class="heading">Team name</th>
+						<th class="heading">Matches</th>
+						<th class="heading">Won    </th>
+						<th class="heading">Lost   </th>
+						<th class="heading">Tied   </th>
+						<th class="heading">N/R    </th>
+						<th class="heading">NRR    </th>
+						<th class="heading">For    </th>
+						<th class="heading">Against</th>
+						<th class="heading">Points </th>
+      				</tr>
+				</thead>
+				<tbody>
+					{% for rows in pointtable %}
+						<tr>
+									<!-- to use len in fask we need to pass has pipe |-->
+							{% for i in range(1, rows|length)%}
+								<td>{{ rows[i] }}</td>
+								{% endfor %}
+						</tr>
+					{% endfor %}
+  				</tbody>
+  			</table>
+		</div>
+  	</body>
+</html>

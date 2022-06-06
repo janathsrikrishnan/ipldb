@@ -1,12 +1,97 @@
-{% extends "base.html" %}
-{% block title %}Home{% endblock %}
-{% block body %}
-    <p>EditionNo:</p>
-    <select>
-        <!-- need to change automaticaly when new ipl edition finished-->
-        {%for i in range(2008, 2023)%}
-            <option>{{i}}</option>
-        {%endfor%}
-    </select>  
-    <button>GET</button>
-{% endblock %}
+<!DOCclass html>
+<html>
+    <head>
+        <title>ipldb</title>
+        <meta charset="utf-8">
+        <link rel="icon" href="{{ url_for('static', filename='images/logo.ico') }}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="ap-main-header col-100 floatLft flexDisplay justifySpace alignCenter flxNav" id="myHeader">
+
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler" class="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <div class="ap-ipl-logo"><a href="index.html"><img class="lazy" src="https://www.news247plus.com/contents_img/N247P-news-image-6291405812-23776-1597979555.jpg" alt="" height="50px" width="50px"></a></div>
+            </li>
+
+                <li class="nav-item active">
+                <a class="nav-link" href="#">Season <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Matches <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Stats <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('pointTable', 2022) }}">Points Table <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Players <span class="sr-only">(current)</span></a>
+              </li>
+                <li class="nav-item active">
+                <a class="nav-link" href="#">More <span class="sr-only">(current)</span></a>
+              </li>
+            </ul>
+            <div class="wrap">
+             <div class="search">
+              <input class="text" class="searchTerm" placeholder="Search">
+              <button class="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+               </button>
+             </div>
+            </div>
+          </div>
+        </nav>
+
+        <section id="highlights">
+
+          <div id="testimonial-carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <h2>Hardik leads Gujarat Titans win their first Trophy in their very 1st Season.</h2>
+                <!-- <img class="testimonial-img" src="images/lady-img.jpg" alt="lady-profile"> -->
+              </div>
+              <div class="carousel-item">
+                <h2 class="testimonial-text">CSK and MI had a tough season this year at Tata IPL 2022.</h2>
+                <!-- <img class="testimonial-img" src="images/lady-img.jpg" alt="lady-profile"> -->
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          </div>
+
+        </section>
+
+        <section id="seasons">
+          <h1 class="season-header">Seasons </h1>
+          <div class="season-buttons">
+            {% for year in range(2008, 2023) %}
+              <a class="button" href="{{ url_for('pointTable', year=pointTable.year ) }}"> {{ year }} </a>
+            {% endfor %}
+
+          </div>
+
+        </section>
+
+        </div>
+    </body>

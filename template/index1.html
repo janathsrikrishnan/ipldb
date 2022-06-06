@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block body %}
+    <p>EditionNo:</p>
+    <select>
+        <!-- need to change automaticaly when new ipl edition finished-->
+        {%for i in range(2008, 2023)%}
+            <option>{{i}}</option>
+        {%endfor%}
+    </select>  
+    <button>GET</button>
+{% endblock %}
