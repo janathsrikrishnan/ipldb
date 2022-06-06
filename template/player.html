@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>{{player_name}}</title>
-        <link rel="icon" href="/images/logo.png">
-    </head>
-    <body>
-        <img src="" alt={{player_name}} />
-        <!--need to create for loop to render the data taken from data base-->
+{% extends "base.html" %}
+{% block title %}{{ player_name|capitalize }}{% endblock %}
+{% block body %}
+    <img width="150" height="150" src="" alt={{player_name}} />
+    <!--need to create for loop to render the data taken from data base-->
 <!-- --> 
-        {%for content in Information%}
-            <p>{{content}}:{{Information[content]}}</p>
-        {%endfor%}
-    </body>
-</html>
+    {%for content in Information%}
+        <p>{{content}}:{{Information[content]}}</p>
+    {%endfor%}
+    <p>For more reference<a href="">{{ player_name }}</a></p>
+{% endblock %}
