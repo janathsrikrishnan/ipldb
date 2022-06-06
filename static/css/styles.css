@@ -1,0 +1,151 @@
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 2.25rem;
+    padding-left: 2.25rem;
+}
+
+.navbar {
+  margin-top: 1.5%;
+}
+
+.searchTerm {
+  display: inline;
+}
+
+.searchButton {
+  display: inline;
+  border-radius: 20%;
+}
+
+.search {
+  display: inline;
+}
+
+.wrap {
+  display: inline;
+}
+
+
+
+#highlights{
+  text-align: center;
+  background-color: #00237D;
+  color: #fff;
+
+}
+
+
+
+h2
+{
+  font-family: "Montserrat";
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+.testimonial-img{
+  width: 10%;
+  border-radius: 100%;
+}
+
+.carousel-item {
+  padding: 5% 5%;
+}
+
+.testimonial-carousel{
+  padding: 5%;
+  margin-bottom: 5%;
+}
+
+.table {
+  margin-top: 3%;
+}
+.table-div {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.heading {
+  background-color: #00237D;
+  color: #fff;
+  text-align: center;
+}
+
+.seasons {
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 1.5rem;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.season-header {
+  margin-left: 2%;
+  margin-top: 4%;
+  margin-bottom: 2%;
+  text-align: center;
+  color: #00237D;
+  font-size: 300%;
+  font-weight: bold;
+}
+
+search-button{
+  padding: 1.5%;
+  padding-left: 3%;
+  padding-right: 3%;
+  text-align: center;
+  margin: 5%;
+  margin-left: 6%;
+  border-radius: 25px;
+  font-weight: bold;
+  border: 2px solid #00237D;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+search-button:hover{
+  background: #00237D;
+  color: #fff;
+  border: none;
+}
+
+
+a.button{
+  padding: 1.5%;
+  padding-left: 3%;
+  padding-right: 3%;
+  text-align: center;
+  margin-left: 8%;
+  margin-right: 2%;
+  margin-top: 45%;
+  margin-bottom: 45%;
+  border-radius: 25px;
+  font-weight: bold;
+  border: 2px solid #00237D;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+  line-height: 9;
+}
+
+.button:hover{
+  background: #00237D;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+}
+
+.nav-link ::after {
+  content: "";
+  height: 10px;
+  width: 0;
+  background: #00237D;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  transition: 0.3s;
+}
+
+.nav-link :hover:after{
+  width: 100%;
+}
