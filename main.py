@@ -38,11 +38,11 @@ def player(player_name):
 def trail():
     return render_template("trail.html")
 
-@app.error_handler(404)
+@app.errorhandler(404)
 def pageNotFound(e):
-    return render_template("404.html", error_code=404), 404
+    return render_template("error.html", error_code=404), 404
 
-@app.error_handler(500)
+@app.errorhandler(500)
 def internal_server_error(e):
     return render_template("error.html", error_code=500), 500
 
