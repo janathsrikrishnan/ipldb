@@ -28,11 +28,19 @@ def pointTable(year : int):
 
 # player info page
 @app.route("/player/<player_name>")
-def player(player_name):
+def player(player_name : str):
     
     Information = {}
     # need to get details of the player for data base and store in Infomation and pass it 
     return render_template("player.html", player_name = player_name, Information=Information)
+
+@app.route("/seasons/<int:year>")
+def seasons(year : int):
+    cur = g.conn.cursor()
+    cur.execute(f"SELECT * FROM seasonStats WHERE editionNo = {year}")
+    # storing recordes as list
+    data = cur.fetchall()
+    return render_template("seasons.html", data=data, year=year)
 
 @app.route("/trail")
 def trail():
