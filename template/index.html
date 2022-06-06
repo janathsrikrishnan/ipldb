@@ -39,7 +39,7 @@
                 <a class="nav-link" href="#">Stats <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('pointTable', 2022) }}">Points Table <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ url_for('pointTable', year=2022) }}">Points Table <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="#">Players <span class="sr-only">(current)</span></a>
@@ -58,7 +58,7 @@
             </div>
           </div>
         </nav>
-
+<!-- 
         <section id="highlights">
 
           <div id="testimonial-carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
@@ -80,13 +80,86 @@
             </a>
           </div>
 
-        </section>
+        </section> -->
+        <section id="highlights">
 
+          <div id="testimonial-carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="2008-champ" src="https://img.cricketnmore.com/uploads/gallery/Rajasthan-Royals-IPL-2008-winner.jpg" alt="2008-champ" height="400px" width="1000px">
+                <h2>2008 Champions - Rajasthan Royals</h2>
+              </div>
+              <div class="carousel-item">
+                <img class="2009-champ" src="https://staticg.sportskeeda.com/editor/2018/12/5a58e-15462326031101-800.jpg" alt="2009-champ" height="400px" width="1000px">
+                <h2>2009 Champions - Deccan Charges</h2>
+              </div>
+              <div class="carousel-item">
+                <img class="2010-champ" src="https://cdn.firstsportz.com/wp-content/uploads/2020/08/26183025/IPL-2010-CSK-VS-MI-FINAL.jpg" alt="2010-champ" height="400px" width="1000px">
+                <h2>2010 Champions - Chennai Super Kings</h2>
+              </div>
+              <div class="carousel-item">
+                <img class="2011-champ" src="https://www.cricwindow.com/images/ipl/photo-gallary/ipl-2011-winner.jpg" alt="2011-champ" height="400px" width="1000px">
+                <h2>2011 Champions - Chennai Super Kings</h2>
+              </div>
+              <div class="carousel-item">
+                <img class="2012-champ" src="https://st1.latestly.com/wp-content/uploads/2021/05/FotoJet-36.jpg" alt="2012-champ" height="400px" width="1000px">
+                <h2>2012 Champions - Kolkata Knight Riders</h2>
+              </div>
+              <div class="carousel-item">
+                <img class="2013-champ" src="https://www.crictracker.com/wp-content/uploads/2018/03/IPL-2013-champions.jpg" alt="2013-champ" height="400px" width="1000px">
+                <h2>2013 Champions - Mumbai Indians</h2>
+              </div>
+              <div class="carousel-item">
+                <img class="2014-champ" src="https://drop.ndtv.com/albums/SPORTS/kkrwinningmoments/1.jpg" alt="2014-champ" height="400px" width="1000px">
+                <h2>2014 Champions - Kolkata Knight Riders</h2>
+              </div>
+              <div class="carousel-item">
+                <img class="2015-champ" src="https://english.cdn.zeenews.com/sites/default/files/styles/zm_700x400/public/2015/05/25/361228-mi-champs-2015.jpg" alt="2015-champ" height="400px" width="1000px">
+                <h2>2015 Champions - Mumbai Indians</h2>
+              </div>
+              <div class="carousel-item">
+                <img class="2016-champ" src="https://i.pinimg.com/originals/b8/c4/8b/b8c48b9db52a7b9ac870110ff16947ff.jpg" alt="2016-champ" height="400px" width="1000px">
+                <h2>2016 Champions - Sunrises Hyderabad</h2>
+              </div>
+              <div class="carousel-item">
+                <img class="2017-champ" src="https://staticg.sportskeeda.com/editor/2018/02/631c0-1518443620-800.jpg" alt="2017-champ" height="400px" width="1000px">
+                <h2>2017 Champions - Mumbai Indians</h2>
+              </div>
+              <div class="carousel-item">
+                <img class="2018-champ" src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201805/RON_3512.png?aWZLb5uDkcI1XdI9s_nm72Ktrh8Fmj8z&size=1200:675" alt="2018-champ" height="400px" width="1000px">
+                <h2>2018 Champions - Chennai Super Kings</h2>
+              </div>
+              <div class="carousel-item">
+                <img class="2019-champ" src="https://www.mumbaiindians.com/static-assets/waf-images/8c/e3/61/0/b9JRw6T5Rt.jpg" alt="2019-champ" height="400px" width="1000px">
+                <h2>2019 Champions - Mumbai Indians</h2>
+              </div>
+              <div class="carousel-item">
+                <img class="2020-champ" src="https://static.toiimg.com/photo/79164230.cms" alt="2020-champ" height="400px" width="1000px">
+                <h2>2020 Champions - Mumbai Indians</h2>
+              </div>
+              <div class="carousel-item">
+                <img class="2021-champ" src="https://images.news18.com/ibnlive/uploads/2021/10/image-54.jpg" alt="2021-champ" height="400px" width="1000px">
+                <h2>2021 Champions - Chennai Super Kings</h2>
+              </div>
+              <div class="carousel-item">
+                <img class="2022-champ" src="https://hindi.cdn.zeenews.com/hindi/sites/default/files/styles/zm_700x400/public/2022/05/30/1161618-gt-with-trophy.jpg?itok=ng_EjOLG" alt="2022-champ" height="400px" width="1000px">
+                <h2>2022 Champions - Gujarat Titans</h2>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          </div>
+
+        </section>
         <section id="seasons">
           <h1 class="season-header">Seasons </h1>
           <div class="season-buttons">
             {% for year in range(2008, 2023) %}
-              <a class="button" href="{{ url_for('pointTable', year=pointTable.year ) }}"> {{ year }} </a>
+              <a class="button" href="{{ url_for('pointTable', year=year) }}"> {{ year }} </a>
             {% endfor %}
 
           </div>
