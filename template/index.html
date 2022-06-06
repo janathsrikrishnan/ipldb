@@ -86,7 +86,7 @@
           <h1 class="season-header">Seasons </h1>
           <div class="season-buttons">
             {% for year in range(2008, 2023) %}
-              <a class="button" href="{{ url_for('pointTable', year=year) }}"> {{ year }} </a>
+              <a class="button" href="{{ url_for('seasons', year=year) }}"> {{ year }} </a>
             {% endfor %}
 
           </div>
