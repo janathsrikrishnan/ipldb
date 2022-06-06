@@ -29,9 +29,11 @@
                     <div class="ap-ipl-logo"><a href="{{ url_for('home') }}"><img class="lazy" src="https://www.news247plus.com/contents_img/N247P-news-image-6291405812-23776-1597979555.jpg" alt="" height="50px" width="50px"></a></div>
                 </li>
     
-                    <li class="nav-item active">
-                    <a class="nav-link" href="#">Season <span class="sr-only">(current)</span></a>
-                  </li>
+                <li class="nav-item active">
+					{% block season %}
+					<!-- <a class="nav-link" href="#">Season <span class="sr-only">(current)</span></a> -->
+					{% endblock %}
+                </li>
                   <li class="nav-item active">
                     <a class="nav-link" href="#">Matches <span class="sr-only">(current)</span></a>
                   </li>
