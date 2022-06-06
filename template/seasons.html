@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Season-{{ year }} {% endblock %}
+
+{% block body %}
+{{ super() }}
+  		<div class="table-div">
+  			<table class="table table-bordered table-hover">
+  				<thead class="thead-points_table">
+      				<tr>
+						<th class="heading">Team name(Short)</th>
+						<th class="heading">Team name(full)</th>
+						<th class="heading">Coach  </th>
+						<th class="heading">Owner  </th>
+						<th class="heading">Captian   </th>
+      				</tr>
+				</thead>
+				<tbody>
+					{% for rows in data %}
+						<tr>
+									<!-- to use len in fask we need to pass has pipe |-->
+							{% for i in range(1, rows|length)%}
+								<td>{{ rows[i] }}</td>
+							{% endfor %}
+
+						</tr>
+					{% endfor %}
+  				</tbody>
+  			</table>
+		</div>
+    </section>
+    <section id="seasons">
+        <h1 class="season-header">Seasons </h1>
+        <div class="season-buttons">
+            {% for year in range(2008, 2023) %}
+                <a class="button" href="{{ url_for('seasons', year=year) }}"> {{ year }} </a>
+            {% endfor %}
+
+        </div>
+
+    </section>
+{% endblock %}
