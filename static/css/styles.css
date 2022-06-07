@@ -126,12 +126,12 @@ a.button{
   cursor: pointer;
   transition: 0.3s;
   line-height: 9;
+  text-decoration: none;
 }
 
 .button:hover{
   background: #00237D;
   color: #fff;
-  text-decoration: none;
   border: none;
 }
 
@@ -148,4 +148,68 @@ a.button{
 
 .nav-link :hover:after{
   width: 100%;
+}
+
+.column {
+  float: left;
+  width: 40%;
+  margin-bottom: 5%;
+  margin-left: 7%;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 #00237D;
+  margin: 8px;
+  text-align: center;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #00237D;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button-about {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #00237D;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button-about:hover {
+  background-color: #D3D3D3;
+  color: #00237D;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.about-team {
+  margin-top: 3%;
+  margin-bottom: 5%;
 }
