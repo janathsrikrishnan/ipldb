@@ -1,0 +1,5 @@
+-- CREATE TABLE purpleCap (editionNo int, position int, playerId int, 
+-- 						playerName char(40), wickets int, BestBowledInnings varchar(30),
+-- 						teamName varchar(40));
+-- COPY purpleCap FROM 'D:\ipldb\Purple Cap.csv' DELIMITER ',' CSV HEADER;
+-- SELECT * FROM purpleCap;
