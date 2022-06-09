@@ -35,6 +35,8 @@ def player(year : int):
     # need to get details of the player for data base and store in Infomation and pass it 
     return render_template("player.html", teams=teams, year=year)
 
+
+
 @app.route("/seasons/<int:year>")
 def seasons(year : int):
     cur = g.conn.cursor()
