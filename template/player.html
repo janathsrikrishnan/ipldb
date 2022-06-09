@@ -1,11 +1,34 @@
 {% extends "base.html" %}
-{% block title %}{{ player_name|capitalize }}{% endblock %}
+{% block title %}Teams{% endblock %}
 {% block body %}
-    <img width="150" height="150" src="" alt={{player_name}} />
+    <!-- <img width="150" height="150" src="" alt={{player_name}} />
     <!--need to create for loop to render the data taken from data base-->
-<!-- --> 
-    {%for content in Information%}
+    <!-- {%for content in Information%}
         <p>{{content}}:{{Information[content]}}</p>
     {%endfor%}
-    <p>For more reference<a href="">{{ player_name }}</a></p>
+    <p>For more reference<a href="">{{ player_name }}</a></p>  -->
+    <section id="seasons" class="teamName">
+        <h1 class="season-header">Teams</h1>
+        <div class="season-buttons">
+            {% for teamName in teams %}
+                {% for team in teamName %}
+                    <a class="button" href="{{ url_for('seasons', year=year) }}"> {{ team }} </a>
+                {% endfor %}
+            {% endfor %}
+
+        </div>
+
+    </section>
+    
+    <section id="seasons">
+        <h1 class="season-header">Seasons </h1>
+        <div class="season-buttons">
+            {% for year in range(2008, 2023) %}
+                <a class="button" href="{{ url_for('player', year=year) }}"> {{ year }} </a>
+            {% endfor %}
+
+        </div>
+
+    </section>
+
 {% endblock %}
