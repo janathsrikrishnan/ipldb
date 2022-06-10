@@ -35,7 +35,13 @@ def Teams(year : int):
     # need to get details of the player for data base and store in Infomation and pass it 
     return render_template("Teams.html", teams=teams, year=year)
 
-
+@app.route("/teams/<teamName>/<int:year>")
+def players(teamName : str, year : int):
+    cur = g.conn.cursor()
+    team = teamName.replace(" ", "-").lower()
+    cur.execute(f"SELECT playerName, photo, role FROM players WHERE editionNo={year} AND teamname='{team}'")
+    players = cur.fetchall()
+    return render_template("players.html", players=players, year=year, teamName=teamName)
 
 @app.route("/seasons/<int:year>")
 def seasons(year : int):
