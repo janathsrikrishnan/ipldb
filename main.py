@@ -39,9 +39,21 @@ def Teams(year : int):
 def players(teamName : str, year : int):
     cur = g.conn.cursor()
     team = teamName.replace(" ", "-").lower()
+    print(team)
     cur.execute(f"SELECT playerName, photo, role FROM players WHERE editionNo={year} AND teamname='{team}'")
     players = cur.fetchall()
     return render_template("players.html", players=players, year=year, teamName=teamName)
+
+@app.route("/team/<teamName>/<int:year>/<playerName>")
+def player(teamName: str, year : int, playerName : str):
+    cur = g.conn.cursor()
+    print(playerName)
+    team = teamName.replace(' ', '-').lower()
+    cur.execute(f"SELECT * FROM players WHERE editionNo={year} AND teamname='{team}' AND playername='{playerName}'")
+    Information = cur.fetchone()
+    cur.execute(f"SELECT teamname, editionno FROM players WHERE playername='{playerName}'")
+    teams = cur.fetchall()
+    return render_template("player.html", Information=Information, teamnames = teams, playerName=playerName)
 
 @app.route("/seasons/<int:year>")
 def seasons(year : int):
