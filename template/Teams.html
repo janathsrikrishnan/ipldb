@@ -12,7 +12,7 @@
         <div class="season-buttons">
             {% for teamName in teams %}
                 {% for team in teamName %}
-                    <a class="button" href="{{ url_for('seasons', year=year) }}"> {{ team }} </a>
+                    <a class="button" href="{{ url_for('players',teamName=team ,year=year) }}"> {{ team }} </a>
                 {% endfor %}
             {% endfor %}
 

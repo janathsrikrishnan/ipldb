@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{ teamName }}-Players{% endblock %}
+
+{% block body %}
+{{ super() }}
+<h1 class="season-header">{{ teamName }}</h1>
+    {% for player in players %}
+        <div class="card">
+            <img src="{{ player[1] }}" onerror="this.onerror=null; this.src='https://icon-library.com/images/user-icon-jpg/user-icon-jpg-2.jpg'" alt="{{ player[0] }}" style="width:100%">
+            <div class="container">
+                <h4><b>{{ player[0] }}</b></h4>
+                <p>{{ player[2] }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
