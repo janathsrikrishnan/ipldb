@@ -27,13 +27,13 @@ def pointTable(year : int):
     return render_template("pointTable.html", year=year, pointtable=pointtable)
 
 # player info page
-@app.route("/player/<int:year>")
-def player(year : int):
+@app.route("/Teams/<int:year>")
+def Teams(year : int):
     cur = g.conn.cursor()
     cur.execute(f"SELECT teamname FROM seasonstats WHERE editionno = {year} ")
     teams = cur.fetchall()
     # need to get details of the player for data base and store in Infomation and pass it 
-    return render_template("player.html", teams=teams, year=year)
+    return render_template("Teams.html", teams=teams, year=year)
 
 
 
