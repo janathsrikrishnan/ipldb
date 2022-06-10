@@ -217,3 +217,7 @@ a.button{
 .teamName{
   word-break: break-all;
 }
+
+#playerImage {
+  float : left;
+}
