@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}-Stats:{{ year }}{% endblock %}
+
+{% block body %}
+{{ super() }}
+    <h1 class="season-header">Purple Cap</h1>
+    {% for player in purplecap %}
+        <div class="card">
+            <!-- <img src="{{ player[1] }}" onerror="this.onerror=null; this.src='https://icon-library.com/images/user-icon-jpg/user-icon-jpg-2.jpg'" alt="{{ player[0] }}" style="width:100%"> -->
+            <div class="container">
+                <h4><b><a class = "button" href="{{ url_for('player', teamName=player[3], year=year, playerName=player[0]) }}">{{ player[0] }}</a></b></h4>
+                <p>Wickets : {{ player[1] }}</p>
+                <p>Best Bowled Innigs : {{ player[2] }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    <h1 class="season-header">Orange Cap</h1>
+    {% for player in orangecap %}
+        <div class="card">
+            <!-- <img src="{{ player[1] }}" onerror="this.onerror=null; this.src='https://icon-library.com/images/user-icon-jpg/user-icon-jpg-2.jpg'" alt="{{ player[0] }}" style="width:100%"> -->
+            <div class="container">
+                <h4><b><a class = "button" href="{{ url_for('playerID', teamName=player[3], year=year, playerId=player[4]) }}">{{ player[0] }}</a></b></h4>
+                <p>Runs : {{ player[1] }}</p>
+                <p>Highest Runs : {{ player[2] }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    <section id="seasons">
+        <h1 class="season-header">Seasons </h1>
+        <div class="season-buttons">
+            {% for year in range(2008, 2023) %}
+                <a class="button" href="{{ url_for('stats', year=year) }}"> {{ year }} </a>
+            {% endfor %}
+
+        </div>
+
+    </section>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Matches:{{ year }}{% endblock %}
+
+{% block body %}
+{{ super() }}
+    <h1 class="season-header">Matches</h1>
+    {% for mt in match %}
+        <div class="card">
+            
+            <div class="container">
+                <h4><b><a class = "button" href="{{ url_for('players', teamName=mt[1], year=year) }}">{{ mt[1] }}</a>Vs
+                    <a class = "button" href="{{ url_for('players', teamName=mt[2], year=year) }}">{{ mt[2] }}</a></b>
+                <p><pre>          {{ mt[4] }}                      {{ mt[5] }}</pre><p></h4>
+                {% if comment %}
+                    <p>{{ mt[3] }}</p>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+    <section id="seasons">
+        <h1 class="season-header">Seasons </h1>
+        <div class="season-buttons">
+            {% for year in range(2008, 2023) %}
+                <a class="button" href="{{ url_for('matches', year=year) }}"> {{ year }} </a>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
