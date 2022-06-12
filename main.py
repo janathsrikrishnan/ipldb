@@ -49,11 +49,27 @@ def player(teamName: str, year : int, playerName : str):
     cur = g.conn.cursor()
     print(playerName)
     team = teamName.replace(' ', '-').lower()
-    cur.execute(f"SELECT * FROM players WHERE editionNo={year} AND teamname='{team}' AND playername='{playerName}'")
+    cur.execute(f"SELECT * FROM players WHERE editionNo={year} AND teamname='{team}' AND playername='{playerName.strip()}'")
     Information = cur.fetchone()
-    cur.execute(f"SELECT teamname, editionno FROM players WHERE playername='{playerName}'")
+    cur.execute(f"SELECT teamname, editionno FROM players WHERE playername='{playerName.strip()}'")
     teams = cur.fetchall()
     return render_template("player.html", Information=Information, teamnames = teams, playerName=playerName)
+
+@app.route("/team/<teamName>/<int:year>/<int:playerId>")
+def playerID(teamName: str, year : int, playerId : int):
+    cur = g.conn.cursor()
+    team = teamName.replace(" ", "-").lower()
+    cur.execute(f"SELECT * FROM players WHERE editionno={year} AND playerid={playerId}")
+    
+    Information = cur.fetchone()
+    try:
+        playerName = Information[3]
+    except:
+        playerName = "Unkown"
+    cur.execute(f"SELECT teamname, editionno FROM players WHERE playername='{playerName.strip()}'")
+    teams = cur.fetchall()
+    return render_template("player.html", Information=Information, teamnames = teams, playerName=playerName)
+
 
 @app.route("/seasons/<int:year>")
 def seasons(year : int):
@@ -62,6 +78,24 @@ def seasons(year : int):
     # storing recordes as list
     data = cur.fetchall()
     return render_template("seasons.html", data=data, year=year)
+
+@app.route("/matches/<int:year>")
+def matches(year : int):
+    coll = g.conn.cursor()
+    coll.execute(f"SELECT matchdate, firstbatting, secondbatting, commentss, firstsummary, secondsummary FROM matchs WHERE editionNo={year} ")
+    orderPresent = False
+    comment = True
+    match = coll.fetchall()
+    return render_template("match.html", match=match, year=year, orderPresent=orderPresent, comment=comment)
+
+@app.route("/stats/<int:year>")
+def stats(year : int):
+    coll = g.conn.cursor()
+    coll.execute(f"SELECT playername, wickets, bestbowledinnings, teamname FROM purplecap WHERE editionno={year}")
+    purplecap = coll.fetchall()
+    coll.execute(f"SELECT playername, runs, highestscore, teamname, playerid FROM orangecap WHERE editionno = {year}")
+    orangecap = coll.fetchall()
+    return render_template('stats.html', purplecap=purplecap, orangecap=orangecap, year=year)
 
 @app.route("/trail")
 def trail():
