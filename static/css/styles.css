@@ -218,6 +218,16 @@ a.button{
   word-break: break-all;
 }
 
-#playerImage {
+.player-profile{
+  display: flex
+}
+
+.playerImage {
   float : left;
 }
+
+.summary {
+  text-align: center;
+  margin-top: 0px;
+}
+

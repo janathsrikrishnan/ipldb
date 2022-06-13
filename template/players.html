@@ -5,19 +5,24 @@
 {% block body %}
 {{ super() }}
 <h1 class="season-header">{{ teamName }}</h1>
+<h2 class="season-header">Squad - {{ year }} </h2>
     {% if players|length == 0 %}
         <div class="container">
             <h1>No Details currently available</h1>
             <p><b>Sorry for your inconvenience</b></p>
         </div>
     {% endif %}
-    {% for player in players %}
-        <div class="card">
-            <img src="{{ player[1] }}" onerror="this.onerror=null; this.src='https://icon-library.com/images/user-icon-jpg/user-icon-jpg-2.jpg'" alt="{{ player[0] }}" style="width:100%">
-            <div class="container">
-                <h4><b><a class = "button" href="{{ url_for('player', teamName=teamName, year=year, playerName=player[0]) }}">{{ player[0] }}</a></b></h4>
-                <p>{{ player[2] }}</p>
+    <div class="row">
+        {% for player in players %}
+            <div class="column">
+                <div class="card">
+                    <img src="{{ player[1] }}" onerror="this.onerror=null; this.src='https://icon-library.com/images/user-icon-jpg/user-icon-jpg-2.jpg'" alt="{{ player[0] }}" height="50%" class="center">
+                    <div class="container">
+                        <h4><b><a class = "button" href="{{ url_for('player', teamName=teamName, year=year, playerName=player[0]) }}">{{ player[0] }}</a></b></h4>
+                        <h3>{{ player[2] }}</h3>
+                    </div>
+                </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 {% endblock %}
