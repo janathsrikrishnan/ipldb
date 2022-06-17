@@ -23,8 +23,11 @@ def pointTable(year : int):
     cur.execute(f"SELECT * FROM pointTable WHERE editionNo = {year}")
     # storing recordes as list
     pointtable = cur.fetchall()
+    teamLabel = [team[1] for team in pointtable]
+    points = [points[10] for points in pointtable]
+    nrr = [nrr[7] for nrr in pointtable]
     # pass the year and list to render the html page
-    return render_template("pointTable.html", year=year, pointtable=pointtable)
+    return render_template("pointTable.html", year=year, pointtable=pointtable, teamLabel=teamLabel, points=points, nrr=nrr)
 
 # player info page
 @app.route("/Teams/<int:year>")
