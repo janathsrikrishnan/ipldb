@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
 {% block title %}Pointtable:{{ year }}{% endblock %}
+{% block head %}
+{{ super() }}
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+{% endblock %}
 
 {% block season %}
 	<a class="nav-link" href="{{ url_for('home', _anchor='seasons') }}">Season <span class="sr-only">(current)</span></a>
@@ -35,6 +39,92 @@
 					{% endfor %}
   				</tbody>
   			</table>
+		</div>
+		<div>
+		<canvas id="PointChart" width="800" height="400"></canvas>
+		<canvas id="nrrChar" width="800" height="400"></canvas>
+		<script>
+			const ctx = document.getElementById("PointChart").getContext("2d");
+			const myChart = new Chart(ctx, {
+			type: 'line',
+			data: {
+				labels: {{ teamLabel | safe }},
+				datasets: [{
+					label: 'points',
+					data: {{ points | safe }},
+					backgroundColor: [
+						'rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)',
+						'rgba(255, 206, 86, 0.2)',
+						'rgba(75, 192, 192, 0.2)',
+						'rgba(153, 102, 255, 0.2)',
+						'rgba(255, 159, 64, 0.2)',
+						'rgba(255, 159, 64, 0.2)',
+						'rgba(255, 159, 64, 0.2)',
+						'rgb(255, 255, 0)',
+						'rgb(0, 0, 255)'
+						],
+						borderColor: [
+							'rgba(255, 99, 132, 1)',
+							'rgba(54, 162, 235, 1)',
+							'rgba(255, 206, 86, 1)',
+							'rgba(75, 192, 192, 1)',
+							'rgba(153, 102, 255, 1)',
+							'rgba(255, 159, 64, 1)'
+            			],
+            			borderWidth: 1
+        			}]
+    			},
+    			options: {
+					responsive: false,
+        			scales: {
+            			y: {
+                			beginAtZero: true
+            			}
+        			}
+    			}
+			});
+			const nrr_ = document.getElementById("nrrChart").getContext("2d");
+			const nrrChart = new Chart(nrr_, {
+			type: 'line',
+			data: {
+				labels: {{ teamLabel | safe }},
+				datasets: [{
+					label: 'points',
+					data: {{ nrr | safe }},
+					backgroundColor: [
+						'rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)',
+						'rgba(255, 206, 86, 0.2)',
+						'rgba(75, 192, 192, 0.2)',
+						'rgba(153, 102, 255, 0.2)',
+						'rgba(255, 159, 64, 0.2)',
+						'rgba(255, 159, 64, 0.2)',
+						'rgba(255, 159, 64, 0.2)',
+						'rgb(255, 255, 0)',
+						'rgb(0, 0, 255)'
+						],
+						borderColor: [
+							'rgba(255, 99, 132, 1)',
+							'rgba(54, 162, 235, 1)',
+							'rgba(255, 206, 86, 1)',
+							'rgba(75, 192, 192, 1)',
+							'rgba(153, 102, 255, 1)',
+							'rgba(255, 159, 64, 1)'
+            			],
+            			borderWidth: 1
+        			}]
+    			},
+    			options: {
+					responsive: false,
+        			scales: {
+            			y: {
+                			beginAtZero: true
+            			}
+        			}
+    			}
+			});
+		</script>
 		</div>
 		<section id="seasons">
 			<h1 class="season-header">Points Tables</h1>
