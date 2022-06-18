@@ -231,3 +231,8 @@ a.button{
   margin-top: 0px;
 }
 
+#charts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
