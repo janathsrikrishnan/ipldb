@@ -40,9 +40,8 @@
   				</tbody>
   			</table>
 		</div>
-		<div>
+		<div id="charts">
 		<canvas id="PointChart" width="800" height="400"></canvas>
-		<canvas id="nrrChar" width="800" height="400"></canvas>
 		<script>
 			const ctx = document.getElementById("PointChart").getContext("2d");
 			const myChart = new Chart(ctx, {
@@ -72,25 +71,12 @@
 							'rgba(153, 102, 255, 1)',
 							'rgba(255, 159, 64, 1)'
             			],
-            			borderWidth: 1
-        			}]
-    			},
-    			options: {
-					responsive: false,
-        			scales: {
-            			y: {
-                			beginAtZero: true
-            			}
-        			}
-    			}
-			});
-			const nrr_ = document.getElementById("nrrChart").getContext("2d");
-			const nrrChart = new Chart(nrr_, {
-			type: 'line',
-			data: {
-				labels: {{ teamLabel | safe }},
-				datasets: [{
-					label: 'points',
+            			borderWidth: 1,
+						yAxisID: 'y',
+
+        			},
+					{
+					label: 'nrr',
 					data: {{ nrr | safe }},
 					backgroundColor: [
 						'rgba(255, 99, 132, 0.2)',
@@ -112,15 +98,38 @@
 							'rgba(153, 102, 255, 1)',
 							'rgba(255, 159, 64, 1)'
             			],
-            			borderWidth: 1
+            			borderWidth: 1,
+					yAxisID: 'y1',
         			}]
     			},
     			options: {
 					responsive: false,
+					interaction: {
+        				mode: 'index',
+        				intersect: false,
+      				},
+					stacked: false,
+					plugins: {
+						title: {
+							display: true,
+							text: 'chart'
+						}
+					},
         			scales: {
             			y: {
-                			beginAtZero: true
-            			}
+							type: 'linear',
+							position: 'left',
+							display: true,
+							beginAtZero: true,
+            			},
+						y1: {
+							type: 'linear',
+							position: 'right',
+							display: true,
+							grid: {
+								drawOnChartArea: false,
+							},
+						}
         			}
     			}
 			});
