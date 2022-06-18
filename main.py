@@ -25,7 +25,7 @@ def pointTable(year : int):
     pointtable = cur.fetchall()
     teamLabel = [team[1] for team in pointtable]
     points = [points[10] for points in pointtable]
-    nrr = [nrr[7] for nrr in pointtable]
+    nrr = [float(nrr[7]) for nrr in pointtable]
     # pass the year and list to render the html page
     return render_template("pointTable.html", year=year, pointtable=pointtable, teamLabel=teamLabel, points=points, nrr=nrr)
 
